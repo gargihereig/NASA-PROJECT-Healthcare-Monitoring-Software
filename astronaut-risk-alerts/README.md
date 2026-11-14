@@ -1,4 +1,4 @@
-# Orbit Health — Astronaut Risk Alerts
+# Zenith — Astronaut Risk Alerts
 
 A self-contained React/Vite dashboard for fictional astronaut telemetry. It has no backend, database, routing, or external application-state dependency. The health engine uses **illustrative development thresholds only**; they are not medically validated and must not be used for clinical decisions.
 

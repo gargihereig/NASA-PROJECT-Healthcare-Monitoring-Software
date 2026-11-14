@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import ActiveAlertsPanel from './ActiveAlertsPanel.jsx';
 import AstronautCard from './AstronautCard.jsx';
+import zenithLogo from '../assets/Zenith logo.png';
 
 const filters = ['ALL', 'CRITICAL', 'WARNING', 'NORMAL'];
 const PANEL_TRANSITION_DURATION_MS = 260;
@@ -161,9 +162,9 @@ export default function Dashboard({
   return (
     <main className="dashboard">
       <header className="topbar">
-        <a className="brand" href="#overview" aria-label="Orbit Health home">
-          <span className="brand-mark">O</span>
-          <span>ORBIT<span className="brand-light"> / HEALTH</span><small>MISSION CONTROL</small></span>
+        <a className="brand" href="#overview" aria-label="ZENITH home">
+          <img className="brand-mark" src={zenithLogo} alt="Zenith Logo" />
+          <span>ZENITH</span>
         </a>
         <div className="topbar-status"><span className="live-dot" /> TELEMETRY ONLINE <span className="status-divider">|</span> DEMO ENVIRONMENT</div>
         <button
@@ -232,7 +233,7 @@ export default function Dashboard({
         </section>
 
         <footer className="dashboard-footer">
-          <span>ORBIT HEALTH <span>·</span> FLIGHT SYSTEMS DEMO</span>
+          <span>ZENITH <span>·</span> FLIGHT SYSTEMS DEMO</span>
           <span>Illustrative thresholds only — not medically validated or for clinical use.</span>
         </footer>
       </div>
