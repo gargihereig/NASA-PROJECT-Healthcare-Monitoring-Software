@@ -100,3 +100,40 @@ export function applyStorm(data) {
     summary: buildSummary(alerts, protons),
   }
 }
+
+// ---------- Extra indicators: solar flare class and geomagnetic Kp ----------
+function flareClass(flux) {
+  const bases = [['X', 1e-4], ['M', 1e-5], ['C', 1e-6], ['B', 1e-7], ['A', 1e-8]]
+  for (const [letter, base] of bases) {
+    if (flux >= base) return `${letter}${(flux / base).toFixed(1)}`
+  }
+  return `A${(flux / 1e-8).toFixed(1)}`
+}
+
+export async function getExtras() {
+  const extras = { flare: null, kp: null }
+  try {
+    const xr = await getJSON('/json/goes/primary/xrays-1-day.json')
+    const long = xr.filter(r => r.energy === '0.1-0.8nm' && r.flux > 0)
+    if (long.length) {
+      const latest = long[long.length - 1]
+      const peak = long.reduce((a, b) => (b.flux > a.flux ? b : a))
+      extras.flare = {
+        current: flareClass(latest.flux),
+        peak: flareClass(peak.flux),
+        peakTime: peak.time_tag,
+      }
+    }
+  } catch (err) {
+    console.warn('X-ray feed failed:', err.message)
+  }
+  try {
+    const kp = await getJSON('/json/planetary_k_index_1m.json')
+    const last = kp[kp.length - 1]
+    const value = Number(last.estimated_kp ?? last.kp_index)
+    if (!Number.isNaN(value)) extras.kp = { value, time: last.time_tag }
+  } catch (err) {
+    console.warn('Kp feed failed:', err.message)
+  }
+  return extras
+}
