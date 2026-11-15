@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import './MentalWellness.css'
 
 const initialSleepHistory = [
   { day: 'M', hours: 7.2 },

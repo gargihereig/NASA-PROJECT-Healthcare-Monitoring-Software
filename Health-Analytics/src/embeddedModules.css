@@ -1,0 +1,133 @@
+:host {
+  position: fixed;
+  inset: 68px 0 0 248px;
+  z-index: 9;
+  overflow: auto;
+  overscroll-behavior: contain;
+  color: #e8eef6;
+  background: #08111f;
+  font-family: "DM Sans", sans-serif;
+}
+
+:host([data-hidden="true"]) {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+@media (max-width: 1150px) {
+  :host {
+    left: 220px;
+  }
+}
+
+@media (max-width: 820px) {
+  :host {
+    left: 0;
+  }
+}
+
+.dashboard,
+.mw-app,
+.min-h-screen {
+  color: #e8eef6;
+  font-family: "DM Sans", sans-serif;
+}
+
+.dashboard {
+  background: #08111f;
+}
+
+.dashboard h1,
+.dashboard h2,
+.min-h-screen h1,
+.min-h-screen h2 {
+  font-family: "Space Grotesk", sans-serif;
+}
+
+.dashboard .metric-card,
+.dashboard .astronaut-card,
+.dashboard .panel {
+  border-color: #1e3044;
+  border-radius: 10px;
+}
+
+.dashboard .metric-card,
+.dashboard .panel {
+  background: #0e1a29;
+}
+
+.mw-app {
+  --mw-bg: #08111f;
+  --mw-panel: #0e1a29;
+  --mw-panel-raised: #102133;
+  --mw-border: #1e3044;
+  --mw-text: #e8eef6;
+  --mw-muted: #a9bac9;
+  --mw-cyan: #35d4df;
+  background: #08111f;
+}
+
+.mw-sidebar,
+.mw-topbar {
+  display: none !important;
+}
+
+.mw-main {
+  width: 100%;
+  margin-left: 0;
+}
+
+.mw-card {
+  border-color: #1e3044;
+  border-radius: 10px;
+  background: linear-gradient(145deg, #0e1a29, #0b1625);
+}
+
+.mw-section-nav {
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  gap: 7px;
+  width: min(100%, 1450px);
+  margin: 0 auto;
+  padding: 14px 40px 0;
+}
+
+.mw-section-nav a {
+  padding: 7px 10px;
+  border: 1px solid #26384c;
+  border-radius: 7px;
+  background: #101e2e;
+  color: #a9bac9;
+  font: 10px "DM Sans", sans-serif;
+  text-decoration: none;
+}
+
+.mw-section-nav a:hover,
+.mw-section-nav a:focus-visible {
+  border-color: #35d4df;
+  color: #e8eef6;
+}
+
+.min-h-screen.bg-slate-950 {
+  background: #08111f;
+  color: #e8eef6;
+}
+
+.rounded-xl.border.border-slate-700.bg-slate-900 {
+  border-color: #1e3044;
+  border-radius: 10px;
+  background: #0e1a29;
+}
+
+.rounded-lg.border.border-slate-700.bg-slate-950 {
+  border-color: #1e3044;
+  background: #0b1625;
+}
+
+:host {
+  --color-sky-300: #35d4df;
+  --color-sky-400: #35d4df;
+  --color-sky-500: #35d4df;
+  --color-sky-600: #35d4df;
+}
