@@ -3,7 +3,6 @@ import * as THREE from "three";
 import {
   ArrowRight, ChevronDown, Download, CircleHelp, Sparkles, Users
 } from "lucide-react";
-import "./styles.css";
 
 const demoCrew = [
   { id:"poorna", name:"S. Poorna", role:"Commander", health:"Nominal", risk:"No alerts", wellness:"Stable", environment:"Normal", readiness:94 },
